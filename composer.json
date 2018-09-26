@@ -1,7 +1,7 @@
 {
     "name": "cnect/dsmbasetheme",
     "description": "Digital Single Market Drupal theme",
-    "type": "theme",
+    "type": "drupal-theme",
     "require": {
         "openeuropa/ecl-twig-loader": "^0.1.1"
     },
