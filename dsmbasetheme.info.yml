@@ -1,0 +1,12 @@
+name: dsmbasetheme
+type: theme
+description: 'DSM Base Theme'
+package: Other
+core: 8.x
+libraries:
+  - dsmbasetheme/global-styling
+ 
+base theme: false
+
+regions:
+  content: Content
