@@ -1,0 +1,15 @@
+{
+    "name": "cnect/dsmbasetheme",
+    "description": "Digital Single Market Drupal theme",
+    "type": "theme",
+    "require": {
+        "openeuropa/ecl-twig-loader": "^0.1.1"
+    },
+    "license": "EUPL-1.2",
+    "authors": [
+        {
+            "name": "Eric Lemonne",
+            "email": "eric@c50.be"
+        }
+    ]
+}
