@@ -5,5 +5,5 @@
     "require": {
         "openeuropa/ecl-twig-loader": "^0.1.1"
     },
-    "license": "EUPL-1.2",
+    "license": "EUPL-1.2"
 }
