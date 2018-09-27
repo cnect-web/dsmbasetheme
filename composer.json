@@ -6,10 +6,4 @@
         "openeuropa/ecl-twig-loader": "^0.1.1"
     },
     "license": "EUPL-1.2",
-    "authors": [
-        {
-            "name": "Eric Lemonne",
-            "email": "eric@c50.be"
-        }
-    ]
 }
