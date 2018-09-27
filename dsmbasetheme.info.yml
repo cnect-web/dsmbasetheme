@@ -5,8 +5,16 @@ package: Other
 core: 8.x
 libraries:
   - dsmbasetheme/global-styling
- 
+
 base theme: false
 
 regions:
-  content: Content
+  site_top_bar: "Site top bar"
+  site_header: "Site header"
+  breadcrumb: "Breadcrumb"
+  page_header: "Page header"
+  navigation: "Navigation"
+  content: "Content"
+  footer_custom: "Footer: Custom"
+  footer_corporate_top: "Footer: Corporate top"
+  footer_corporate_bottom: "Footer: Corporate bottom"
