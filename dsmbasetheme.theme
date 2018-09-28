@@ -4,6 +4,8 @@
  * @file
  * Functions to support theming in the dsmbasetheme theme.
  */
+use Drupal\Core\Extension\ThemeHandler;
+use OpenEuropa\Twig\Loader\EuropaComponentLibraryLoader;
 
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
