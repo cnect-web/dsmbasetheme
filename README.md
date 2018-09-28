@@ -1,5 +1,7 @@
 # Digital Single Market base theme
 
+[![Packagist](https://img.shields.io/badge/Packagist-v1.0.0--alpha-orange.svg)](https://packagist.org/packages/cnect/dsmbasetheme)
+
 Drupal 8 theme based on the [Europa Component Library][1] (ECL).
 
 ## Requirements
