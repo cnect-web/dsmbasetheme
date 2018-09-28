@@ -143,8 +143,7 @@ To patch a component:
 
 ```
 $ npx patch-package @ecl/[component-name]
-
-
+```
 
 [1]: https://github.com/ec-europa/europa-component-library
 [2]: https://www.drupal.org/docs/develop/using-composer/using-composer-to-manage-drupal-site-dependencies#managing-contributed
