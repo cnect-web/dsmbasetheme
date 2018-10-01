@@ -6,7 +6,7 @@ core: 8.x
 libraries:
   - dsmbasetheme/global-styling
 
-base theme: false
+base theme: False
 
 regions:
   site_top_bar: "Site top bar"
