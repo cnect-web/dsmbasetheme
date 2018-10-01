@@ -6,7 +6,7 @@ dependencies:
   theme:
     - dsmbasetheme
 id: dsmbasetheme_site_branding
-theme: oe_theme
+theme: dsmbasetheme
 region: site_header
 weight: 0
 provider: null
