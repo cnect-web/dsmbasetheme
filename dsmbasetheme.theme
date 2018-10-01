@@ -7,12 +7,16 @@
 use Drupal\Core\Extension\ThemeHandler;
 use OpenEuropa\Twig\Loader\EuropaComponentLibraryLoader;
 
+
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
 function dsmbasetheme_preprocess_html(array &$variables) {
   /* Add class to html tag */
   //$variables['html_attributes']->addClass('no-js');
+
+$loader = new EuropaComponentLibraryLoader(['ecl', 'openeuropa'], 'components', 'themes/contrib/dsmbasetheme/templates/');
+$twig = new Twig_Environment($loader);
 
   // Don't display the site name twice on the front page (and potentially others)
   /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
@@ -65,6 +69,7 @@ function dsmbasetheme_theme_suggestions_node_alter(array &$suggestions, array $v
  * Implements hook_preprocess_HOOK() for Block document templates.
  */
 function dsmbasetheme_preprocess_block(array &$variables) {
+
 
 }
 
