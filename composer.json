@@ -3,7 +3,8 @@
     "description": "Digital Single Market Drupal theme",
     "type": "drupal-theme",
     "require": {
-        "openeuropa/ecl-twig-loader": "^0.1.1"
+        "openeuropa/ecl-twig-loader": "^0.1.1",
+        "openeuropa/oe_multilingual": "^0.1.5||~0.2"
     },
     "license": "EUPL-1.2"
 }

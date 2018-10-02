@@ -4,9 +4,64 @@
  * @file
  * Functions to support theming in the dsmbasetheme theme.
  */
-use Drupal\Core\Extension\ThemeHandler;
-use OpenEuropa\Twig\Loader\EuropaComponentLibraryLoader;
 
+declare(strict_types = 1);
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Render\Element;
+use Drupal\Component\Utility\Random;
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function dsmbasetheme_preprocess_breadcrumb(&$variables) {
+  $request     = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $title       = \Drupal::service('title_resolver')
+    ->getTitle($request, $route_match->getRouteObject());
+
+  $variables['segments'] = array_map(function ($item) {
+    return [
+      'href' => $item['url'],
+      'label' => $item['text'],
+    ];
+  }, $variables['breadcrumb']);
+
+  // Add the title to the segments only if it's not empty.
+  if (!empty($title)) {
+    $variables['segments'][] = [
+      'label' => $title,
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu__main().
+ */
+function dsmbasetheme_preprocess_menu__main(&$variables) {
+  // Massage data to be compliant with ECL navigation menu data structure.
+  $variables['links'] = array_map(function ($item) {
+    return [
+      'href' => $item['url'],
+      'label' => $item['title'],
+      'is_active' => $item['in_active_trail'],
+    ];
+  }, $variables['items']);
+
+  foreach ($variables['items'] as $name => $link) {
+    $variables['links'][$name]['children_links'] = array_map(function ($item) {
+      return [
+        'links' => [[
+          'href' => $item['url'],
+          'label' => $item['title'],
+          'is_active' => $item['in_active_trail'],
+        ],
+        ],
+      ];
+    }, $variables['items'][$name]['below']);
+  }
+}
 
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
@@ -14,9 +69,9 @@ use OpenEuropa\Twig\Loader\EuropaComponentLibraryLoader;
 function dsmbasetheme_preprocess_html(array &$variables) {
   /* Add class to html tag */
   //$variables['html_attributes']->addClass('no-js');
-
-$loader = new EuropaComponentLibraryLoader(['ecl', 'openeuropa'], 'components', 'themes/contrib/dsmbasetheme/templates/');
-$twig = new Twig_Environment($loader);
+if ('language_selection_page' == \Drupal::request()->attributes->get('_route')) {
+    $variables['attributes']['class'][] = 'page-splash';
+  }
 
   // Don't display the site name twice on the front page (and potentially others)
   /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
@@ -149,4 +204,43 @@ function dsmbasetheme_theme_suggestions_details_alter(array &$suggestions, array
  */
 function dsmbasetheme_preprocess_menu_local_task(array &$variables) {
   //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dsmbasetheme_preprocess_pattern_link_block(&$variables) {
+  // Format links in order to respect ECL expectations.
+  foreach ($variables['links'] as $key => $link) {
+    $variables['links'][$key]['href'] = $link['url'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function _dsmbasetheme_preprocess_pattern_social_media_links(&$variables) {
+  // Format social media links in order to respect ECL expectations.
+  foreach ($variables['links'] as $key => $link) {
+    $variables['links'][$key]['variant'] = $link['service'];
+    $variables['links'][$key]['link'] = [
+      'label' => $link['label'],
+      'href' => $link['url'],
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dsmbasetheme_preprocess_pattern_social_media_links_vertical(&$variables) {
+  _oe_theme_preprocess_pattern_social_media_links($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dsmbasetheme_preprocess_pattern_social_media_links_horizontal(&$variables) {
+  _oe_theme_preprocess_pattern_social_media_links($variables);
 }
