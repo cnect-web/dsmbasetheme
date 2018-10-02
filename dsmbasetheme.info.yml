@@ -4,7 +4,7 @@ description: 'DSM Base Theme'
 package: Other
 core: 8.x
 libraries:
-  - dsmbasetheme/global-styling
+  - dsmbasetheme/style
 
 base theme: False
 
