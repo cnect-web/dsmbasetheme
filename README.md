@@ -12,9 +12,9 @@ This depends on the following software:
 
 ## Installation
 
-The recommended way of installing the OpenEuropa theme is via a [Composer-based workflow][2].
+The recommended way of installing the theme is via a [Composer-based workflow][2].
 
-In your Drupal project's main `composer.json` add the following dependency in you Drupal instance:
+In your Drupal project's main `composer.json` add the following dependency instance:
 
 ```json
 {
