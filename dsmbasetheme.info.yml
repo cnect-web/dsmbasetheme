@@ -18,3 +18,13 @@ regions:
   footer_custom: "Footer: Custom"
   footer_corporate_top: "Footer: Corporate top"
   footer_corporate_bottom: "Footer: Corporate bottom"
+
+config:
+  optional:
+    - block.block.dsmbasetheme_demo_corporate_bottom
+    - block.block.dsmbasetheme_demo_corporate_top
+    - block.block.dsmbasetheme_demo_custom
+    - block.block.dsmbasetheme_demo_header_site_switcher
+    - block.block.dsmbasetheme_demo_header_search
+    - block.block.dsmbasetheme_demo_main_navigation
+
