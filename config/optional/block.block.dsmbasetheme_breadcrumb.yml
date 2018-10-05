@@ -4,8 +4,8 @@ dependencies:
   module:
     - system
   theme:
-    - oe_theme
-id: oe_theme_breadcrumb
+    - dsmbasetheme
+id: dsmbasetheme_breadcrumb
 theme: oe_theme
 region: breadcrumb
 weight: 0
