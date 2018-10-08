@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dsmbasetheme
+id: dsmbasetheme_header_site_switcher
+theme: dsmbasetheme
+region: site_top_bar
+weight: 0
+provider: null
+plugin: 'dsmbasetheme_block:header_site_switcher'
+settings:
+  id: 'dsmbasetheme_block:header_site_switcher'
+  label: 'Header: Site switcher demo'
+  provider: dsmbasetheme
+  label_display: '0'
+visibility: {  }
