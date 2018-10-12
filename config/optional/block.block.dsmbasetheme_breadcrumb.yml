@@ -6,7 +6,7 @@ dependencies:
   theme:
     - dsmbasetheme
 id: dsmbasetheme_breadcrumb
-theme: oe_theme
+theme: dsmbasetheme
 region: breadcrumb
 weight: 0
 provider: null
