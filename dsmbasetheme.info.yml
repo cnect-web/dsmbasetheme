@@ -5,6 +5,7 @@ package: Other
 core: 8.x
 libraries:
   - dsmbasetheme/style
+  - dsmbasetheme/base
 
 base theme: False
 
