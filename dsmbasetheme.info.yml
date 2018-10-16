@@ -5,6 +5,7 @@ package: Other
 core: 8.x
 libraries:
   - dsmbasetheme/style
+  - dsmbasetheme/base
 
 base theme: False
 
@@ -21,6 +22,8 @@ regions:
 
 config:
   optional:
+    - block.block.oe_multilingual_content_language_switcher
+    - block.block.oe_multilingual_language_switcher
     - block.block.dsmbasetheme_content_corporate_bottom
     - block.block.dsmbasetheme_content_corporate_top
     - block.block.dsmbasetheme_content_custom
