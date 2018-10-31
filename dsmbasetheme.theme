@@ -233,6 +233,30 @@ function dsmbasetheme_preprocess_menu_local_task(array &$variables) {
   //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dsmbasetheme_preprocess_pattern_accordion(&$variables) {
+    // If no identifier is provided generate a random, unique one.
+    if (empty($variables['identifier'])) {
+        $random = new Random();
+        $variables['identifier'] = $random->string(8, TRUE);
+    }
+
+    // Format items in order to respect ECL expectations.
+    foreach (array_values($variables['items']) as $key => $item) {
+        $variables['items'][$key] = [
+            'id' => $variables['identifier'] . '-' . $key,
+            'heading' => [
+                'title' => $item['title'],
+                'icon' => $item['icon'],
+                'level' => $key,
+            ],
+            'body' => $item['body'],
+            'isExpanded' => $key === 0,
+        ];
+    }
+}
 
 /**
  * Implements hook_preprocess_HOOK().
