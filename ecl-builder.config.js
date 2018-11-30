@@ -16,7 +16,7 @@ const banner = `${pkg.name} - ${
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(nodeModules, '@ecl/ec-preset-website/ec-preset-website.js'),
+      entry: path.resolve('ec-custom-preset/ec-preset-full.js'),
       dest: path.resolve(outputFolder, 'js/base.js'),
       options: {
         banner,
